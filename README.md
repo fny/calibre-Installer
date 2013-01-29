@@ -38,8 +38,7 @@ All output will be logged to `~/Library/Logs/calibre-installer.log`.
 ## Many Thanks to...
 
  - [Kovid Goyal](http://kovidgoyal.net/) and [company](http://calibre-ebook.com/about#contributors) for calibre
- - diaboNL for the calibre icon (used by the installer)
-   script
+ - [Kamil Tatara](http://www.flickr.com/photos/cakeshop_pl/5987792062/) for the calibre icon (used by this app too)
  - [Sveinbjorn Thordarson](https://github.com/sveinbjornt)
    for the magnificent [Platypus](https://github.com/sveinbjornt/Platypus)
 
