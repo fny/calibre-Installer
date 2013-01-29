@@ -1,11 +1,3 @@
-# Project Specific
-# ================
-
-## Ignore the app and compressed versions
-calibre Installer.app
-*.zip
-*.dmg
-
 # General
 # =======
 
