@@ -2,7 +2,7 @@
 
 The simple way to update or install calibre.
 
-![Screenshot](Screenshot.png "calibre Installer in action!")
+![Screenshot](//raw.github.com/fny/calibre-Installer/master/Screenshot.png "calibre Installer in action!")
 
 As of its current version, [calibre](http://calibre-ebook.com/) requires for
 users to visit the [calibre download page](http://calibre-ebook.com/download),
