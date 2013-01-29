@@ -1,0 +1,49 @@
+# Project Specific
+# ================
+
+## Ignore the app and compressed versions
+calibre Installer.app
+*.zip
+*.dmg
+
+# General
+# =======
+
+## Don't Ignore Ignore Files
+!.gitignore
+
+## OS X
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+# =======
+
+## Emacs
+*~
+\#*\#
+.emacs.desktop
+.emacs.desktop.lock
+.elc
+.\#*
+.org-id-locations
+
+## Redcar
+.redcar
+
+## Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+## Texmtate
+*.tmproj
+*.tmproject
+tmtags
+.tm_properties
+
+## Vim
+.*.sw[a-z]
+*.un~
+Session.vim
