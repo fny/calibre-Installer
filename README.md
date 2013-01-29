@@ -2,6 +2,11 @@
 
 The simple way to update or install calibre.
 
+You can [download the latest release](https://github.com/fny/calibre-Installer/archive/master.zip)
+from the source archive or by cloning the repo. (GitHub recently deprecated the
+[Downloads Tab](https://github.com/blog/1302-goodbye-uploads).) Expect me to
+move the app for proper hosting soon: builds don't belong in code repositories. ;D
+
 ![Screenshot](//raw.github.com/fny/calibre-Installer/master/Screenshot.png "calibre Installer in action!")
 
 As of its current version, [calibre](http://calibre-ebook.com/) requires for
