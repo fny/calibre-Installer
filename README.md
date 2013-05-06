@@ -7,7 +7,7 @@ from the source archive or by cloning the repo. (GitHub recently deprecated the
 [Downloads Tab](https://github.com/blog/1302-goodbye-uploads).) Expect me to
 move the app for proper hosting soon: builds don't belong in code repositories. ;D
 
-![Screenshot](//raw.github.com/fny/calibre-Installer/master/Screenshot.png "calibre Installer in action!")
+![Screenshot](//github.com/fny/calibre-Installer/blob/master/Screenshot.png "calibre Installer in action!")
 
 As of its current version, [calibre](http://calibre-ebook.com/) requires for
 users to visit the [calibre download page](http://calibre-ebook.com/download),
