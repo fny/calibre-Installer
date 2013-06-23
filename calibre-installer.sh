@@ -25,30 +25,26 @@
 # Utility functions
 #
 
-log_file="$HOME/Library/Logs/calibre-installer.log"
-
 # Exit with an optional [error message] and [exit status]
 error_exit() {
+  echo ''
   echo "Calibre install error: ${1:-"Unknown Error"}
 You can manually download and install calibre from http://calibre-ebook.com/download_osx
-See the log file for more information: $log_file
 " 1>&2; exit "${2:-1}"
 }
 
 # GET a <URL> and write the output to <output file>; throw an error if the request fails
 download_or_exit(){
   response_code=`curl --write-out %{http_code} --output $2 $1`
-  echo ''
   [ "$response_code" != "200" ] && error_exit "Failed HTTP request!
 Server responded with a $response_code error when requesting \"$1\"
 See $2 for the full output of the request"
 }
 
 #
-# Main script
-# Wrapped in a function for logging purposes; executes at the end of this file
+# Main block
 #
-main_function(){
+
 [ `uname` != 'Darwin' ] && error_exit "This installation script is incompatible with `uname` operating systems."
 
 if [ `osascript -e 'tell application "System Events" to (name of processes) contains "calibre"'` = true ]; then
@@ -97,9 +93,4 @@ echo "Unmounting the image..."
 hdiutil detach `hdiutil info | grep $mount_point | grep -o "/dev/disk\d*s\d*"`
 
 echo "Install complete! Launching calibre!"
-osascript -e "tell application \"calibre\" to activate" || error_exit "Calibre failed to open!"
-sleep 5
-} # End main_function wrap
-
-echo "Logging output to $log_file..."
-main_function 2>&1 | tee -a $log_fle
+osascript -e 'tell application "calibre" to activate' || error_exit "Calibre failed to open!"
