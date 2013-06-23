@@ -60,7 +60,7 @@ release_url='http://code.google.com/feeds/p/calibre-ebook/downloads/basic'
 echo "Downloading the calibre release feed from $release_url..."
 download_or_exit $release_url /tmp/calibre-feed
 
-calibre_download_url=`cat /tmp/calibre-feed | grep -o "http://calibre-ebook\.googlecode\.com/files/calibre.*\.dmg"`
+calibre_download_url=`cat /tmp/calibre-feed | grep -m 1 -o "http://calibre-ebook\.googlecode\.com/files/calibre.*\.dmg"`
 # Raise an error if no download URL is found
 if [ -z $calibre_download_url ]; then
   page_title=`cat /tmp/calibre-feed | grep "<title>.*</title>" | sed s/'<\/*title>'//g`
