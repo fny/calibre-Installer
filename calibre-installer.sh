@@ -38,10 +38,10 @@ See the log file for more information: $log_file
 # GET a <URL> and write the output to <output file>; throw an error if the request fails
 download_or_exit(){
   response_code=`curl --write-out %{http_code} --output $2 $1`
-  echo ''
-  [ "$response_code" != "200" ] && error_exit "Failed HTTP request!
-Server responded with a $response_code error when requesting \"$1\"
-See $2 for the full output of the request"
+#  echo ''
+#  [ "$response_code" != "200" ] && error_exit "Failed HTTP request!
+#Server responded with a $response_code error when requesting \"$1\"
+# See $2 for the full output of the request"
 }
 
 #
@@ -70,7 +70,7 @@ fi
 
 echo "Downloading calibre image from $calibre_download_url..."
 dmg=`basename $calibre_download_url` # The image filename (e.g. 'calibre-x.x.x.dmg')
-download_or_exit $calibre_download_url /tmp/$dmg
+download_or_exit "$calibre_download_url" /tmp/$dmg
 
 mount_point="/Volumes/`basename $dmg .dmg`"
 echo "Mounting /tmp/$dmg to $mount_point..."
