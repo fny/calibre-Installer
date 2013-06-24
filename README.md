@@ -31,9 +31,23 @@ works as follows:
  install calibre to `/Applications/calibre.app`
  5. A back up of any previous version can be found in
  ``/tmp/calibre-`date +%s`.app.bak``
- 6. When finished, calibre will launch!
+ 6. When finished, calibre will launch. (Note that as of this implementation, calibre will not become the frontmost application upon launch.)
 
-All output will be logged to `~/Library/Logs/calibre-installer.log`.
+## Contributing
+
+### Suggestions and Bug Reports
+
+Submit issues and requests through [Github issues](https://github.com/fny/calibre-Installer/issues/new) or the [associated thread on the calibre forums](http://www.mobileread.com/forums/showthread.php?t=204157&referrerid=185801).
+
+Please provide the output of the installer's text window if relevant.
+
+### Hacking Guidelines
+
+ - Play with the shell script (calibre-installer.sh) to your hearts content
+ - Try to keep things POSIX compliant
+ - Stick to native OS X command-line utilities
+ - Make sure to test the output of the script
+ - Don't worry about creating a new build of the application
 
 ## Many Thanks to...
 
