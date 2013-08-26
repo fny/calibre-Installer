@@ -35,7 +35,7 @@ You can manually download and install calibre from http://calibre-ebook.com/down
 
 # GET a <URL> and write the output to <output file>; throw an error if the request fails
 download_or_exit(){
-  response_code=`curl --write-out %{http_code} --output $2 $1`
+  response_code=`curl -L --write-out %{http_code} --output $2 $1`
   [ "$response_code" != "200" ] && error_exit "Failed HTTP request!
 Server responded with a $response_code error when requesting \"$1\"
 See $2 for the full output of the request"
@@ -52,27 +52,18 @@ if [ `osascript -e 'tell application "System Events" to (name of processes) cont
   osascript -e 'tell app "calibre" to quit' || error_exit 'Calibre failed to quit!'
 fi
 
-release_url='http://code.google.com/feeds/p/calibre-ebook/downloads/basic'
-echo "Downloading the calibre release feed from $release_url..."
-download_or_exit $release_url /tmp/calibre-feed
-
-calibre_download_url=`cat /tmp/calibre-feed | grep -m 1 -o "http://calibre-ebook\.googlecode\.com/files/calibre.*\.dmg"`
-# Raise an error if no download URL is found
-if [ -z $calibre_download_url ]; then
-  page_title=`cat /tmp/calibre-feed | grep "<title>.*</title>" | sed s/'<\/*title>'//g`
-  error_exit "No download URL found at $release_url. Instead found page: $page_title
-See /tmp/calibre-feed for the full contents of $release_url."
-fi
+calibre_download_url='http://status.calibre-ebook.com/dist/osx32'
 
 echo "Downloading calibre image from $calibre_download_url..."
 dmg=`basename $calibre_download_url` # The image filename (e.g. 'calibre-x.x.x.dmg')
 download_or_exit $calibre_download_url /tmp/$dmg
 
-mount_point="/Volumes/`basename $dmg .dmg`"
-echo "Mounting /tmp/$dmg to $mount_point..."
+echo "Mounting /tmp/$dmg..."
 hdiutil attach /tmp/$dmg
-[ -e $mount_point/calibre.app ] || error_exit '"calibre.app" could not be found in the downloaded .dmg'
+mount_point=`find /Volumes -maxdepth 1 -name "calibre*" | head`
+echo $mount_point
 
+[ -e "$mount_point/calibre.app" ] || error_exit '"calibre.app" could not be found in the downloaded .dmg'
 local_calibre="$HOME/Applications/calibre.app"
 backup_dir="/tmp/calibre-`date +%s`.app.bak"
 

@@ -16,22 +16,19 @@ provoked me to spend even more time than visiting a link to write this
 installation script.
 
 ## What magic lives inside?
-
+file:///Users/farazyashar/Workspace/Published%20Code/calibre%20Installer/README.md
 The app consists of a shell script bundled as an OS X application. The script
 works as follows:
 
  1. Closes any running calibre instances
- 2. Checks the
- [calibre release feed](http://code.google.com/feeds/p/calibre-ebook/downloads/basic)
- for the latest version of calibre.
- 3. Downloads and mounts the latest disk image
- 4. Replaces calibre in the local application folder
+ 2. Downloads [the latest calibre](http://calibre-ebook.com/download_osx) and mounts the disk image
+ 3. Replaces calibre in the local application folder
  (`~/Applications/calibre.app`) or the shared application folder
  (`/Applications/calibre.app`); if calibre is not installed, the script will
  install calibre to `/Applications/calibre.app`
- 5. A back up of any previous version can be found in
+ 4. A back up of any previous version can be found in
  ``/tmp/calibre-`date +%s`.app.bak``
- 6. When finished, calibre will launch. (Note that as of this implementation, calibre will not become the frontmost application upon launch.)
+ 5. When finished, calibre will launch. (Note that as of this implementation, calibre will not become the frontmost application upon launch.)
 
 ## Contributing
 
