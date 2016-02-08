@@ -63,7 +63,7 @@ hdiutil attach /tmp/$dmg
 mount_point=`find /Volumes -maxdepth 1 -name "calibre*" | head`
 echo $mount_point
 
-[ -e "$mount_point/calibre.app" ] || error_exit '"calibre.app" could not be found in the downloaded .dmg'
+[ -e "$mount_point/calibre.app" ] || error_exit '"calibre.app" could not be found in the downloaded .dmg, you might have also had another calibre dmg open.'
 local_calibre="$HOME/Applications/calibre.app"
 backup_dir="/tmp/calibre-`date +%s`.app.bak"
 
