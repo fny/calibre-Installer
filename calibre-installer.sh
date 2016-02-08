@@ -52,7 +52,7 @@ if [ `osascript -e 'tell application "System Events" to (name of processes) cont
   osascript -e 'tell app "calibre" to quit' || error_exit 'Calibre failed to quit!'
 fi
 
-calibre_download_url='http://status.calibre-ebook.com/dist/osx32'
+calibre_download_url='http://calibre-ebook.com/dist/osx'
 
 echo "Downloading calibre image from $calibre_download_url..."
 dmg=`basename $calibre_download_url` # The image filename (e.g. 'calibre-x.x.x.dmg')
