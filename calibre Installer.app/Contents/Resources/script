@@ -41,6 +41,12 @@ Server responded with a $response_code error when requesting \"$1\"
 See $2 for the full output of the request"
 }
 
+# Fetches latest calibre release from Github
+fetch_calibre_url() {
+  curl -s https://api.github.com/repos/kovidgoyal/calibre/releases |
+    grep browser_download_url | grep .dmg | head -1 | grep -oE 'https[^"]+'
+}
+
 #
 # Main block
 #
@@ -52,7 +58,8 @@ if [ `osascript -e 'tell application "System Events" to (name of processes) cont
   osascript -e 'tell app "calibre" to quit' || error_exit 'Calibre failed to quit!'
 fi
 
-calibre_download_url='http://calibre-ebook.com/dist/osx'
+echo "Fetching latest release url from Github..."
+calibre_download_url=`fetch_calibre_url`
 
 echo "Downloading calibre image from $calibre_download_url..."
 dmg=`basename $calibre_download_url` # The image filename (e.g. 'calibre-x.x.x.dmg')
